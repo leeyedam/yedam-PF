@@ -1,221 +1,129 @@
 /** @jsx jsx */
-import { jsx, Container, Box, Flex } from 'theme-ui';
-import { keyframes } from '@emotion/core';
-import React, { useState } from 'react';
-import Carousel from 'react-multi-carousel';
-import PriceCard from 'components/price-card';
-import ButtonGroup from 'components/button-group';
-import SectionHeader from 'components/section-header';
-import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
+import { jsx, Container, Box, Flex } from "theme-ui";
+import { keyframes } from "@emotion/core";
+import React, { useState } from "react";
+import Carousel from "react-multi-carousel";
+import PriceCard from "components/price-card";
+import ButtonGroup from "components/button-group";
+import SectionHeader from "components/section-header";
+import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
+import PfThumb1 from "assets/project/joinus.png";
+import PfThumb2 from "assets/project/Olrimpick.png";
 
 const packages = {
-  monthly: [
+  joinus: [
     {
       id: 1,
-      name: '중학교 1학년',
-      description: '내신30% / 문법30% / 듣기20% / 단어 20%',
-      buttonText: '문의하기',
-      priceWithUnit: '원',
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: '내신보단 부교재 위주',
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "내신대비는 시험 전 3주 진행",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: '문법과 단어 등 기초에 집중',
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCloseCircle />,
-          text: '월 / 수 / 금 ',
-          isAvailable: true,
-        },
-      ],
+      img: PfThumb1,
+      name: "조이너스",
+      description: "사이드프로젝트 및 스터디 팀원을 모집하는 사이트",
+      buttonText: "바로가기",
+      siteLink: "https://joinus.store/",
     },
     {
       id: 2,
-      name: '중학교 2학년',
-      description: '내신30% / 문법30% / 듣기20% / 단어 20% ',
-      priceWithUnit: '원',
-      buttonText: '문의하기',
-      // anotherOption: 'Or Start 14 Days trail',
+      name: "JOINUS",
+      description: "8인 팀프로젝트 ",
+      priceWithUnit: "원",
+      buttonText: "GitHub",
+      siteLink:
+        "https://github.com/orgs/function-implementation-only/repositories",
+      // anotherOption: "Or Start 14 Days trail",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: '내신보단 부교재 위주',
+          text: "개발인원 : 8명",
           isAvailable: true,
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
-          text: "내신대비는 시험 전 3주 진행",
+          text: "Frontend : React / Typescript / Redux",
           isAvailable: true,
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: '문법과 단어 등 기초에 집중',
+          text: "Backend : Spring / MYSQL",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCloseCircle />,
-          text: '월 / 수 / 금 ',
+          icon: <IoIosCheckmarkCircle />,
+          text: "Deployment : AWS",
           isAvailable: true,
         },
       ],
     },
     {
       id: 3,
-      header: '입시반',
+      header: "영상",
       headerIcon: <IoIosCheckmarkCircle />,
-      name: '중학교 3학년',
-      description: '내신40% / 문법30% / 듣기10% / 단어 20%',
-      priceWithUnit: '원',
-      buttonText: '문의하기',
-      // anotherOption: 'Or Start 14 Days trail',
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: '학기 중: 내신 위주',
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "방학 중: 고등 입시 대비 모의고사반 진행",
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: '입시 기초반 모집',
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: '1등급 대비반 모집',
-          isAvailable: true,
-        },
-      ],
+      siteLink: "https://joinus.store/",
     },
   ],
-  annual: [
+  olrimpick: [
     {
       id: 1,
-      name: '고등학교 1학년',
-      description: '내신대비 / 모의고사 대비',
-      buttonText: '문의하기',
-      priceWithUnit: '원',
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "방학: 모의고사 및 내신대비",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: '시험 전 7주 대비',
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: '내신 1등급 대비반 모집',
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCloseCircle />,
-          text: '문법 기초반 모집',
-          isAvailable: true,
-        },
-      ],
+      img: PfThumb2,
+      name: "근황올림픽",
+      description: "서로의 근황을 묻고 나의 근황을 올리는 사이트",
+      buttonText: "바로가기",
+      siteLink: "https://olrimpick.netlify.app/",
     },
     {
       id: 2,
-      name: '고등학교 2학년',
-      description: '내신대비 / 모의고사 대비',
-      buttonText: '문의하기',
-      priceWithUnit: '원',
+      name: "OLRIMPICK",
+      description: "1인 개인프로젝트 ",
+      priceWithUnit: "원",
+      buttonText: "GitHub",
+      siteLink: "https://github.com/leeyedam/Olrimpick_client",
+      // anotherOption: "Or Start 14 Days trail",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: "방학: 모의고사 및 내신대비",
+          text: "개발인원 : 1명",
           isAvailable: true,
         },
         {
           id: 2,
           icon: <IoIosCheckmarkCircle />,
-          text: '시험 전 7주 대비',
+          text: "Frontend : React / Javascript / Redux",
           isAvailable: true,
         },
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: '내신 1등급 대비반 모집',
+          text: "Backend : Stream",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCloseCircle />,
-          text: '문법 기초반 모집',
+          icon: <IoIosCheckmarkCircle />,
+          text: "Deployment : Vercel",
+          isAvailable: true,
+        },
+        {
+          id: 5,
+          icon: <IoIosCheckmarkCircle />,
+          text: "ID : user / PW: 123123",
+          isAvailable: true,
+        },
+        {
+          id: 6,
+          icon: <IoIosCheckmarkCircle />,
+          text: "위에 둘러보기용 아이디와 로그인은 Signup이 아닌 Login으로 들어가주세요!",
           isAvailable: true,
         },
       ],
     },
     {
       id: 3,
-      header: '입시반',
+      header: "영상",
       headerIcon: <IoIosCheckmarkCircle />,
-      name: '고등학교 3학년',
-      description: '내신대비 / 모의고사 대비',
-      buttonText: '문의하기',
-      priceWithUnit: '원',
-      // anotherOption: 'Or Start 10 Days trail',
-      points: [
-        {
-          id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "방학: 모의고사 및 내신대비",
-          isAvailable: true,
-        },
-        {
-          id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: '시험 전 7주 대비',
-          isAvailable: true,
-        },
-        {
-          id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: '내신 1등급 대비반 모집',
-          isAvailable: true,
-        },
-        {
-          id: 4,
-          icon: <IoIosCloseCircle />,
-          text: '문법 기초반 모집',
-          isAvailable: true,
-        },
-      ],
+      siteLink: "https://olrimpick.netlify.app/",
     },
   ],
 };
@@ -239,24 +147,24 @@ const responsive = {
 };
 
 export default function Package() {
-  const { monthly, annual } = packages;
+  const { joinus, olrimpick } = packages;
   const [state, setState] = useState({
-    active: 'monthly',
-    pricingPlan: monthly,
+    active: "joinus",
+    pricingPlan: joinus,
   });
 
   const handlePricingPlan = (plan) => {
-    if (plan === 'annual') {
+    if (plan === "olrimpick") {
       setState({
         ...state,
-        active: 'annual',
-        pricingPlan: annual,
+        active: "olrimpick",
+        pricingPlan: olrimpick,
       });
     } else {
       setState({
         ...state,
-        active: 'monthly',
-        pricingPlan: monthly,
+        active: "joinus",
+        pricingPlan: joinus,
       });
     }
   };
@@ -266,48 +174,45 @@ export default function Package() {
     arrows: false,
     autoPlaySpeed: 3000,
     centerMode: false,
-    className: '',
+    className: "",
     slidesToSlide: 1,
     items: 3,
-    containerClass: 'carousel-container',
+    containerClass: "carousel-container",
     customButtonGroup: <ButtonGroup />,
-    dotListClass: '',
+    dotListClass: "",
     focusOnSelect: false,
     infinite: false,
     keyBoardControl: false,
-    itemClass: '',
+    itemClass: "",
     minimumTouchDrag: 80,
     renderButtonGroupOutside: true,
     renderDotsOutside: false,
     responsive: responsive,
     showDots: false,
-    sliderClass: '',
+    sliderClass: "",
   };
 
   return (
-    <section id="pricing" sx={{ variant: 'section.pricing' }}>
+    <section id="Project" sx={{ variant: "section.pricing" }}>
       <Container>
-        <SectionHeader
-          slogan="notice"
-          title="프로그램 안내"
-        />
+        <SectionHeader slogan="about" title="Project" />
         <Flex sx={styles.buttonGroup}>
           <Box sx={styles.buttonGroupInner}>
             <button
-              className={state.active === 'monthly' ? 'active' : ''}
+              className={state.active === "joinus" ? "active" : ""}
               type="button"
-              aria-label="Monthly"
-              onClick={() => handlePricingPlan('monthly')}
+              aria-label="joinus"
+              onClick={() => handlePricingPlan("joinus")}
             >
-              중등반
+              Joinus
             </button>
             <button
-              className={state.active === 'annual' ? 'active' : ''}
+              className={state.active === "olrimpick" ? "active" : ""}
               type="button"
-              aria-label="Annual"
-              onClick={() => handlePricingPlan('annual')}
+              aria-label="olrimpick"
+              onClick={() => handlePricingPlan("olrimpick")}
             >
-              고등반
+              Olrimpick
             </button>
           </Box>
         </Flex>
@@ -348,75 +253,76 @@ const fadeIn2 = keyframes`
 `;
 const styles = {
   pricingWrapper: {
-    mb: '-80px',
-    mt: '-40px',
+    mb: "-80px",
+    mt: "-40px",
     mx: -3,
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    '&.pricing__wrapper .package__card': {
-      '.package__header': {
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    "&.pricing__wrapper .package__card": {
+      ".package__header": {
         animation: `${fadeIn} 0.8s ease-in`,
       },
-      'ul > li': {
+      "ul > li": {
         animation: `${fadeIn2} 0.7s ease-in`,
       },
-      '.package__price': {
+      ".package__price": {
         animation: `${fadeIn2} 0.9s ease-in`,
       },
       button: {
         animation: `${fadeIn2} 1s ease-in`,
       },
     },
-    '.carousel-container': {
-      width: '100%',
-      '> ul > li ': {
-        display: 'flex',
+    ".carousel-container": {
+      width: "100%",
+      "> ul > li ": {
+        display: "flex",
       },
     },
-    '.button__group': {
-      display: ['flex', null, null, null, 'none'],
+    ".button__group": {
+      display: ["flex", null, null, null, "none"],
       mb: [4, null, null, null, 0],
     },
   },
   pricingItem: {
     mx: 3,
-    display: 'flex',
+    display: "flex",
     flexShrink: 0,
-    flex: '1 1 auto',
+    flex: "1 1 auto",
   },
   buttonGroup: {
-    justifyContent: 'center',
-    mb: '7',
-    mt: ['-15px', '-35px'],
-    position: 'relative',
+    justifyContent: "center",
+    mb: "7",
+    mt: ["-15px", "-35px"],
+    position: "relative",
     zIndex: 2,
   },
   buttonGroupInner: {
-    display: 'flex',
-    padding: '7px',
-    margin: '0 auto',
-    borderRadius: '5px',
-    backgroundColor: '#F7F8FB',
+    display: "flex",
+    padding: "7px",
+    margin: "0 auto",
+    borderRadius: "5px",
+    backgroundColor: "#23825a",
     button: {
       border: 0,
-      padding: ['15px 20px', '15px 27px'],
-      borderRadius: '5px',
-      color: 'text',
+      width: "120px",
+      padding: ["15px 20px", "15px 27px"],
+      borderRadius: "5px",
+      color: "text",
       fontSize: [1, 2],
       lineHeight: 1.2,
       fontWeight: 500,
-      backgroundColor: 'transparent',
-      cursor: 'pointer',
-      fontFamily: 'body',
-      letterSpacing: '-0.24px',
-      transition: 'all 0.3s',
-      '&.active': {
-        color: '#0f2137',
-        backgroundColor: '#ffffff',
-        boxShadow: '0 3px 4px rgba(38, 78, 118, 0.1)',
+      backgroundColor: "transparent",
+      cursor: "pointer",
+      fontFamily: "body",
+      letterSpacing: "-0.24px",
+      transition: "all 0.3s",
+      "&.active": {
+        color: "#fff",
+        backgroundColor: "#000",
+        boxShadow: "0 3px 4px rgba(38, 78, 118, 0.1)",
       },
-      '&:focus': {
+      "&:focus": {
         outline: 0,
       },
     },

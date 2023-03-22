@@ -1,18 +1,18 @@
 export default [
   {
-    path: 'home',
-    label: 'Home',
-  },
-  // {
-  //   path: 'feature',
-  //   label: 'Study',
-  // },
-  {
-    path: 'pricing',
-    label: 'Program',
+    path: "home",
+    label: "Home",
   },
   {
-    path: 'testimonial',
-    label: 'Review',
+    path: "Project",
+    label: "Project",
+  },
+  {
+    path: "SmallProject",
+    label: "SmallProject",
+  },
+  {
+    path: "Skills",
+    label: "Skills",
   },
 ];

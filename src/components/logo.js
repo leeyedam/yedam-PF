@@ -1,22 +1,21 @@
 /** @jsx jsx */
-import { jsx, Image } from 'theme-ui';
-import { Link } from 'components/link';
+import { jsx, Image } from "theme-ui";
+import { Link } from "components/link";
 
 export default function Logo({ src, ...rest }) {
   return (
     <Link
       path="/"
       sx={{
-        variant: 'links.logo',
-        display: 'flex',
-        cursor: 'pointer',
+        variant: "links.logo",
+        display: "flex",
+        cursor: "pointer",
         mr: 15,
       }}
-      style={{textDecoration: 'none',
-      color:'#105dc4'}}
+      style={{ textDecoration: "none", color: "#fff" }}
       {...rest}
     >
-      <h1>PARKSSAM</h1>
+      <h1>YEDAM</h1>
     </Link>
   );
 }

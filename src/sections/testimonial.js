@@ -1,55 +1,57 @@
 /** @jsx jsx */
-import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
-import SectionHeader from 'components/section-header';
-import Rating from 'components/rating';
-import ButtonGroup from 'components/button-group';
-import Carousel from 'react-multi-carousel';
+import { jsx, Container, Heading, Text, Box, Image } from "theme-ui";
+import SectionHeader from "components/section-header";
+import Rating from "components/rating";
+import ButtonGroup from "components/button-group";
+import Carousel from "react-multi-carousel";
+import Link from "next/link";
 
-import Avatar1 from 'assets/testimonial/avatar1.png';
-import Avatar2 from 'assets/testimonial/avatar2.png';
-import Avatar3 from 'assets/testimonial/avatar3.png';
-import Avatar4 from 'assets/testimonial/avatar4.png';
+import Modu from "assets/project/modu.png";
+import Watchout from "assets/project/watchout.png";
+import Github from "assets/project/github.png";
+import Pokedex from "assets/project/pokedex.png";
 
 const data = [
   {
     id: 1,
-    title: '3등급에서 1등급으로',
+    title: "MODU",
     description:
-      '내신대비뿐만 아니라 모의고사를 함께 병행해서 안심이 되었고, 문법 기초부터 꼼꼼하게 짚어주셔서 아주 좋았습니다.',
-    avatar: Avatar1,
-    name: '이OO',
-    designation: '중앙여고 2학년',
-    review: 5,
+      "각 나라의 수도의 현재 날씨와 시간별 날씨, 습도, 바람 등 한꺼번에 모아서 볼 수 있는 웹사이트 입니다.",
+    skills: "React / Zustand / Axios / MUI",
+    git: "GITHUB 소스 보러가기",
+    gitLink: "https://github.com/leeyedam/Modu_project1",
+    siteLink: "https://modu-project1.vercel.app/",
+    img: Modu,
   },
   {
     id: 2,
-    title: '기초부터 탄탄하게',
+    title: "WATCHOUT PEDIA",
     description:
-      '문법과 해석을 같이 진행하면서 기초를 다질 수 있어서 좋았습니다.',
-    avatar: Avatar2,
-    name: '김OO',
-    designation: '양화중 3학년',
-    review: 5,
+      "최근 개봉작 / 인기 상영작 등 영화와 TV프로그램을 검색할 수 있는 사이트입니다. ReactQuery를 활용해서 API연동으로 받아온 데이터를 웹사이트에 적용하는 법을 공부하였고, Emotion을 활용하여 스타일링 하는 부분을 배웠습니다. 클론코딩으로 제작된 사이트입니다.",
+    skills: "React / ReactQuery / Emotion",
+    git: "GITHUB 소스 보러가기",
+    gitLink: "https://github.com/leeyedam/react-watchout-pedia",
+    siteLink: "https://react-watchout-pedia.vercel.app/",
+    img: Watchout,
   },
   {
     id: 3,
-    title: '고등학교 입시반',
+    title: "GITHUB SEARCH ENGINE",
     description:
-      '예비 고1인데 문법기초부터 고등 내신 대비까지 함께 준비할 수 있어서 도움이 되었어요.',
-    avatar: Avatar3,
-    name: '서OO',
-    designation: '당산중 3학년',
-    review: 5,
+      "Github API를 활용하여 깃헙 사용자 리스트와 사용자의 상세정보와 리퍼지토리 조회를 구현했습니다. Zustand 상태관리 라이브러리를 활용하여 상태관리를 하였고, MUI를 활용하여 UI를 표현했습니다. 배포는 Firebase를 사용했습니다. 클론코딩으로 제작된 사이트입니다.",
+    skills: "React / Zustand / MUI / Axios / Firebase",
+    siteLink: "https://yedam-github-search-engine.web.app/",
+    img: Github,
   },
   {
     id: 4,
-    title: '4등급에서 2등급으로',
+    title: "POKEDEX",
     description:
-      '내신대비반으로 2등급이나 올릴 수 있었습니다. 해석부터 기출문제까지 반복학습을 할 수 있어서 좋았습니다~',
-    avatar: Avatar4,
-    name: '박OO',
-    designation: '중앙고 2학년',
-    review: 4,
+      "포켓몬의 종류와 각각의 포켓몬의 진화과정,기술 등 상세설명이 담긴 웹사이트입니다. ReactQuery를 활용해서 API연동으로 받아온 데이터를 웹사이트에 적용하는 법을 공부하였고, Emotion을 활용하여 스타일링 하는 부분을 배웠습니다. 클론코딩으로 제작된 사이트입니다.",
+    git: "GITHUB 소스 보러가기",
+    gitLink: "https://github.com/leeyedam/pokedex-playground",
+    siteLink: "https://pokedex-playground.vercel.app/",
+    img: Pokedex,
   },
 ];
 
@@ -57,7 +59,7 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1619 },
     items: 4,
-    slidesToSlide: 4, // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   laptop: {
     breakpoint: { max: 1619, min: 1024 },
@@ -76,11 +78,15 @@ const responsive = {
   },
 };
 
+const handleOpenNewTab = (url) => {
+  window.open(url, "_blank", "noopener, noreferrer");
+};
+
 export default function TestimonialCard() {
   return (
-    <section id="testimonial" sx={{ variant: 'section.testimonial' }}>
-      <Container css={{ textAlign: 'center' }}>
-        <SectionHeader slogan="review" title="박쌤과 함께한 성적 상승 후기" />
+    <section id="SmallProject" sx={{ variant: "section.testimonial" }}>
+      <Container css={{ textAlign: "center" }}>
+        <SectionHeader slogan="Study" title="Small Project & Clone Coding" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel
@@ -106,22 +112,23 @@ export default function TestimonialCard() {
           slidesToSlide={1}
         >
           {data.map((item) => (
-            <Box sx={styles.reviewCard} key={`testimonial--key${item.id}`}>
-              <Rating rating={item.review} />
+            <Box
+              sx={styles.reviewCard}
+              key={`testimonial--key${item.id}`}
+              onClick={() => handleOpenNewTab(item.siteLink)}
+            >
               <Heading as="h3" sx={styles.title}>
                 {item.title}
               </Heading>
               <Text sx={styles.description}>{item.description}</Text>
+              <Text sx={styles.description}>{item.skills}</Text>
+              <Text sx={styles.description}>
+                <a href={item.gitLink} target="_blank">
+                  {item.git}
+                </a>
+              </Text>
               <div className="card-footer">
-                <div className="image">
-                  <Image src={item.avatar} alt="Client Image" />
-                </div>
-                <div className="reviewer-info">
-                  <Heading as="h4" sx={styles.heading}>
-                    {item.name}
-                  </Heading>
-                  <Text sx={styles.designation}>{item.designation}</Text>
-                </div>
+                <Image src={item.img} alt="Client Image" />
               </div>
             </Box>
           ))}
@@ -133,125 +140,132 @@ export default function TestimonialCard() {
 
 const styles = {
   carouselWrapper: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-    mt: '-30px',
-    px: '15px',
-    height:'400px',
-    '.carousel-container': {
-      width: '100%',
+    display: "flex",
+    justifyContent: "flex-end",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    mt: "-30px",
+    px: "15px",
+    height: "700px",
+    ".carousel-container": {
+      width: "100%",
       maxWidth: [
-        '100%',
+        "100%",
         null,
         null,
-        '750px',
-        '1000px',
-        '1180px',
+        "750px",
+        "1000px",
+        "1180px",
         null,
-        'calc(50% + 865px)',
+        "calc(50% + 865px)",
       ],
-      mr: ['auto', null, null, null, null, null, null, '-220px'],
-      ml: 'auto',
-      '.react-multi-carousel-item': {
-        transition: 'all 0.25s',
+      mr: ["auto", null, null, null, null, null, null, "-220px"],
+      ml: "auto",
+      ".react-multi-carousel-item": {
+        transition: "all 0.25s",
       },
-      '.react-multi-carousel-item--active:nth-of-type(4n)': {
-        opacity: '0.5',
-        '@media screen and (max-width: 1620px)': {
+      ".react-multi-carousel-item--active:nth-of-type(4n)": {
+        opacity: "0.5",
+        "@media screen and (max-width: 1620px)": {
           opacity: 1,
         },
       },
     },
   },
   reviewCard: {
-    boxShadow: '0px 0px 1px rgba(38, 78, 118, 0.35)',
-    transition: 'all 0.3s',
-    borderRadius: '6px',
+    boxShadow: "0px 0px 1px rgba(38, 78, 118, 0.35)",
+    transition: "all 0.3s",
+    borderRadius: "6px",
+    cursor: "pointer",
+    height: "586px",
     p: [
-      '30px 20px 35px',
-      '30px 25px 35px',
-      '30px 20px 35px',
-      '35px 30px 40px 40px',
-      '30px 30px 35px',
-      '35px 30px 40px 40px',
+      "30px 20px 35px",
+      "30px 25px 35px",
+      "30px 20px 35px",
+      "35px 30px 40px 40px",
+      "30px 30px 35px",
+      "35px 30px 40px 40px",
     ],
-    bg: 'white',
-    textAlign: 'left',
+    bg: "gray",
+    textAlign: "left",
     m: [
-      '28px 5px 30px 5px',
-      '28px 20px 30px 20px',
-      '28px 15px 30px 15px',
-      '28px 15px 30px 15px',
-      '30px 20px 40px',
+      "28px 5px 30px 5px",
+      "28px 20px 30px 20px",
+      "28px 15px 30px 15px",
+      "28px 15px 30px 15px",
+      "30px 20px 40px",
     ],
-    '&:hover': {
-      boxShadow: '0px 6px 30px rgba(38, 78, 118, 0.1)',
+    "&:hover": {
+      boxShadow: "0px 6px 30px rgba(38, 78, 118, 0.1)",
     },
-    '.rating': {
+    ".rating": {
       mb: [1, null, null, 2],
       ul: {
         pl: 0,
-        listStyle: 'none',
+        listStyle: "none",
         mb: 0,
-        display: 'flex',
+        display: "flex",
       },
       svg: {
-        marginRight: '2px',
-        '&:last-of-type': {
+        marginRight: "2px",
+        "&:last-of-type": {
           marginRight: 0,
         },
       },
-      '.star': {
-        color: 'primary',
-        mr: '1px',
+      ".star": {
+        color: "primary",
+        mr: "1px",
       },
-      '.star-o': {
-        color: '#ddd',
-        mr: '1px',
+      ".star-o": {
+        color: "#ddd",
+        mr: "1px",
       },
     },
-    '.card-footer': {
-      display: 'flex',
-      alignItems: 'center',
-      marginTop: [5, null, null, '33px'],
-      '.image': {
+    ".card-footer": {
+      display: "flex",
+      alignItems: "center",
+      marginTop: [5, null, null, "33px"],
+      ".image": {
         flexShrink: 0,
         mr: [3, null, null, 4],
-        display: 'flex',
+        display: "flex",
         img: {
-          width: '55px',
-          height: '55px',
-          borderRadius: '50%',
-          objectFit: 'cover',
+          width: "55px",
+          height: "55px",
+          borderRadius: "50%",
+          objectFit: "cover",
         },
       },
     },
   },
   title: {
-    fontSize: [1, 2],
+    fontSize: [1, 3],
     fontWeight: 700,
-    mb: [3, null, null, '22px'],
-    color: 'text',
-    lineHeight: 1.6,
+    mb: [3, null, null, "18px"],
+    color: "text_secondary",
+    lineHeight: 1.2,
   },
   description: {
     fontSize: [1, null, null, 2],
-    fontWeight: 'normal',
-    color: 'text',
+    fontWeight: "normal",
+    color: "text",
     lineHeight: [1.85, null, 2],
+    a: {
+      textDecoration: "none",
+      color: "#ccc",
+      fontWeight: "700",
+    },
   },
   heading: {
     fontSize: [1, null, null, 2],
     fontWeight: 700,
-    mb: '3px',
-    color: 'text',
+    mb: "3px",
+    color: "text",
     lineHeight: 1.3,
   },
   designation: {
-    color: 'primary',
-    fontWeight: '500',
+    color: "primary",
+    fontWeight: "500",
     fontSize: 1,
     lineHeight: 1.4,
   },
